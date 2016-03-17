@@ -35,18 +35,27 @@ public class Valuta {
 		return naziv;
 	}
 	public void setNaziv(String naziv) {
+		if(naziv == null || naziv.isEmpty()){
+			throw new RuntimeException("Greska pri unosu naziva valute!");
+		}
 		this.naziv = naziv;
 	}
 	public String getSkraceniNaziv() {
 		return skraceniNaziv;
 	}
 	public void setSkraceniNaziv(String skraceniNaziv) {
+		if(skraceniNaziv == null || skraceniNaziv.isEmpty()){
+			throw new RuntimeException("Greska pri unosu skracenog naziva valute!");
+		}
 		this.skraceniNaziv = skraceniNaziv;
 	}
 	public LinkedList<Kurs> getKursevi() {
 		return kursevi;
 	}
 	public void setKursevi(LinkedList<Kurs> kursevi) {
+		if(kursevi == null){
+			throw new RuntimeException("Greska pri unosu kurseva!");
+		}
 		this.kursevi = kursevi;
 	}
 	
