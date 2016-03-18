@@ -9,6 +9,14 @@ public class Kurs {
 	private double kupovniKurs;
 	private double srednjiKurs;
 	
+	public Kurs(GregorianCalendar datum, double prodajniKurs, double kupovniKurs, double srednjiKurs) {
+		super();
+		this.datum = datum;
+		this.prodajniKurs = prodajniKurs;
+		this.kupovniKurs = kupovniKurs;
+		this.srednjiKurs = srednjiKurs;
+	}
+
 	@Override
 	public String toString() {
 		SimpleDateFormat sdl = new SimpleDateFormat("dd.MM.yyyy.");

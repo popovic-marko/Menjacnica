@@ -7,6 +7,13 @@ public class Valuta {
 	private String skraceniNaziv;
 	private LinkedList<Kurs> kursevi;
 	
+	public Valuta(String naziv, String skraceniNaziv, LinkedList<Kurs> kursevi) {
+		super();
+		this.naziv = naziv;
+		this.skraceniNaziv = skraceniNaziv;
+		this.kursevi = kursevi;
+	}
+
 	@Override
 	public String toString() {
 		return "\n" + naziv + "("+ skraceniNaziv + ")" + ",je za sledece datume imala kurseve: " + "\n" + kursevi;
