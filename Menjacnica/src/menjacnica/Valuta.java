@@ -51,7 +51,7 @@ public class Valuta {
 		return skraceniNaziv;
 	}
 	public void setSkraceniNaziv(String skraceniNaziv) {
-		if(skraceniNaziv == null || skraceniNaziv.isEmpty()){
+		if(skraceniNaziv == null || skraceniNaziv.isEmpty() || skraceniNaziv.length() > 3){
 			throw new RuntimeException("Greska pri unosu skracenog naziva valute!");
 		}
 		this.skraceniNaziv = skraceniNaziv;

@@ -35,12 +35,12 @@ public class Menjacnica implements MenjacnicaInterfejs {
 	}
 
 	@Override
-	public void obrisiKurs(String naziv, String skraceniNaziv, GregorianCalendar datum) {
-		if(naziv == null || skraceniNaziv == null || datum == null)
+	public void obrisiKurs(String naziv, GregorianCalendar datum) {
+		if(naziv == null || datum == null)
 			return;
 		
 		for (int i = 0; i < valute.size(); i++) {
-			if(valute.get(i).getNaziv().equals(naziv)){
+			if(valute.get(i).getNaziv().equals(naziv) || valute.get(i).getSkraceniNaziv().equals(naziv)){
 				for (int j = 0; j < valute.get(i).getKursevi().size(); j++) {
 					if( ( valute.get(i).getKursevi().get(j).getDatum().get(GregorianCalendar.DATE) == datum.get(GregorianCalendar.DATE) )
 							&& ( valute.get(i).getKursevi().get(j).getDatum().get(GregorianCalendar.MONTH) == datum.get(GregorianCalendar.MONTH) )  
@@ -61,7 +61,7 @@ public class Menjacnica implements MenjacnicaInterfejs {
 		double[] niz = new double[3];
 		boolean postoji = false;
 		for (int i = 0; i < valute.size(); i++) {
-			if(valute.get(i).getNaziv().equals(valuta)) {
+			if(valute.get(i).getNaziv().equals(valuta) || valute.get(i).getSkraceniNaziv().equals(valuta)) {
 				for (int j = 0; j < valute.get(i).getKursevi().size(); j++) {
 					if( ( valute.get(i).getKursevi().get(j).getDatum().get(GregorianCalendar.DATE) == datum.get(GregorianCalendar.DATE) )
 							&& ( valute.get(i).getKursevi().get(j).getDatum().get(GregorianCalendar.MONTH) == datum.get(GregorianCalendar.MONTH) )  
@@ -80,4 +80,13 @@ public class Menjacnica implements MenjacnicaInterfejs {
 		return niz;
 	}
 
+	public LinkedList<Valuta> getValute() {
+		return valute;
+	}
+
+	public void setValute(LinkedList<Valuta> valute) {
+		if(valute == null)
+			throw new RuntimeException("Greska pri unosu valuta!");
+		this.valute = valute;
+	}
 }
